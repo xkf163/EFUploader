@@ -408,8 +408,6 @@ public class EnUploader extends HttpServlet  {
         //fileName
         Item originNameItem = attachmentDoc.getFirstItem("FileName");
 
-        //web根目录绝对路径
-        //String dirPath = request.getRealPath("/"); /local/notesdata03/domino/html/
 
         String[] fileArr=new String[originNameItem.getValueLength()];
         int index=0;
@@ -430,56 +428,10 @@ public class EnUploader extends HttpServlet  {
             // previewConfig.setUrl(request.getContextPath()+"/file/delete");
             previewConfig.setExtra(new FileResult.PreviewConfig.Extra(attachmentDoc.getUniversalID(),appDocUNID,mssDbPath));
             previewConfig.setSize(1234567L);
-//            if(attFileName.indexOf(".txt")>0)
-//                previewConfig.setType("text");
-//            if(attFileName.indexOf(".pdf")>0)
-//                previewConfig.setType("pdf");
             previewConfigs.add(previewConfig);
 
 
         }
-
-
-/*
-        for (Document sysFile : fileList) {
-            //上传后预览 TODO 该预览样式暂时不支持theme:explorer的样式，后续可以再次扩展
-            //如果其他文件可预览txt、xml、html、pdf等 可在此配置
-            String mssDbPath = sysFile.getParentDatabase().getFilePath();
-            String attDocUnid = sysFile.getUniversalID();
-            String attSavedName = sysFile.getItemValueString("SavedName");
-            String attFileName = sysFile.getItemValueString("FileName");
-            String _atturl = "/"+ mssDbPath + "/0/" + attDocUnid + "/$file/" + attSavedName;
-            System.out.println("_atturl:"+_atturl);
-            //数据的形式展示
-            //previews.add(_atturl);
-
-            //if(FileUtil.isImage(sysFile.getItemValueString("FilePath"))) {
-                //拼凑可以直接访问附件的URL  = "/" + mssdb + "/0/" + attunid + "/$file/" + encodeURIComponent(attfile);
-                //previews.add("<img src='" + _atturl + "' class='file-preview-image kv-preview-data' " +
-                 //       "style='width:auto;height:160px' alt='" + attFileName + " title='" + attFileName + "''>");
-            //}else if(attFileName.indexOf(".pdf")>0) {
-            //    previews.add(_atturl);
-            //}else{
-                previews.add("<div class='kv-preview-data file-preview-other-frame'><div class='file-preview-other'>" +
-                      "<span class='file-other-icon'>"+getFileIcon(sysFile.getItemValueString("FileName"))+"</span></div></div>");
-            //}
-
-            //上传后预览配置
-            FileResult.PreviewConfig previewConfig=new FileResult.PreviewConfig();
-            previewConfig.setWidth("120px");
-            previewConfig.setCaption(sysFile.getItemValueString("FileName"));
-            previewConfig.setKey(sysFile.getUniversalID());
-            // previewConfig.setUrl(request.getContextPath()+"/file/delete");
-            previewConfig.setExtra(new FileResult.PreviewConfig.Extra(sysFile.getUniversalID(),appDocUNID,mssDbPath));
-            previewConfig.setSize((long) sysFile.getItemValueInteger("FileSize"));
-//            if(attFileName.indexOf(".txt")>0)
-//                previewConfig.setType("text");
-//            if(attFileName.indexOf(".pdf")>0)
-//                previewConfig.setType("pdf");
-            previewConfigs.add(previewConfig);
-            fileArr[index++]=sysFile.getUniversalID();
-        }
-*/
 
         fileResult.setInitialPreview(previews);
         fileResult.setInitialPreviewConfig(previewConfigs);
