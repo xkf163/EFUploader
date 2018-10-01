@@ -37,8 +37,9 @@ public class FileResult {
         String url;
         String key;
         Extra extra;
-        Long size;
+        String size;
         String type;
+        String hashCoder;
 
         public static class Extra{
             String id;
@@ -83,11 +84,11 @@ public class FileResult {
             }
         }
 
-        public void setSize(Long size) {
+        public void setSize(String size) {
             this.size = size;
         }
 
-        public Long getSize() {
+        public String getSize() {
             return size;
         }
 
@@ -137,6 +138,14 @@ public class FileResult {
 
         public void setType(String type) {
             this.type = type;
+        }
+
+        public String getHashCoder() {
+            return hashCoder;
+        }
+
+        public void setHashCoder(String hashCoder) {
+            this.hashCoder = hashCoder;
         }
     }
 

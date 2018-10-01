@@ -6,7 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -17,9 +16,10 @@ import java.util.Map;
 /**
  * @Author:xukangfeng
  * @Description
- * @Date : Create in 15:10 2018/8/19
+ * @Date : Create in 9:21 2018/10/1
  */
 public class EnFiler extends HttpServlet {
+
 
     //previewFileIconSettings
     public static Map fileIconMap=new HashMap();
@@ -55,15 +55,18 @@ public class EnFiler extends HttpServlet {
         System.out.println("EnFiler doPost Running...");
         Database mssDb=null;
         Session session=null;
+        View mssView = null;
+
         response.setContentType("application/json;charset=utf-8");
         PrintWriter out = response.getWriter();
-        String fileIds = request.getParameter("fileIds");
+        //String fileIds = request.getParameter("fileIds");
         String appMSSDatabase = request.getParameter("mssDbPath");
         String appDocUNID = request.getParameter("appDocUNID");
         List<Document> fileList=new ArrayList<Document>();
         FileResult msg = null;
         Document attDoc = null;
 
+        System.out.println("当前打开的主文档ID： "+appDocUNID);
         //appMSSDatabase = "weboa/equipmentLib1.nsf";
         /**
          * 初始化
@@ -73,24 +76,27 @@ public class EnFiler extends HttpServlet {
             NotesThread.sinitThread();
             session = NotesFactory.createSession();
             mssDb = session.getDatabase(session.getServerName(), appMSSDatabase);
+            mssView = mssDb.getView("AttachmentView");
 
-            if(!StrUtil.isEmpty(fileIds)) {
-                attDoc = mssDb.getDocumentByUNID(fileIds);
-                /*
-                String[] fileIdArr = fileIds.split(",");
-                for (String unid : fileIdArr){
-                    attDoc = mssDb.getDocumentByUNID(unid);
-                    fileList.add(attDoc);
-                }*/
+            attDoc = mssView.getDocumentByKey(appDocUNID);
+
+            //if(!StrUtil.isEmpty(fileIds)) {
+            //attDoc = mssDb.getDocumentByUNID(fileIds);
+            if(attDoc == null){
+                System.out.println("attdoc is 空");
+
+                out.write("{\"fileIds\":\"\"}");
+                out.flush();
+                out.close();
+                return;
             }
+            // }
 
-            System.out.println("海量库找到附件文档的size："+fileList.size());
+            System.out.println("海量库找到附件文档的size：123");
 
-            try {
-                msg = EnUploader.getPreivewSettings(attDoc,request,appDocUNID);
-            } catch (NotesException e) {
-                e.printStackTrace();
-            }
+
+            msg = EnUploader.getPreivewSettings(attDoc,request,appDocUNID);
+
 
 
         } catch (NotesException e) {
@@ -107,7 +113,10 @@ public class EnFiler extends HttpServlet {
             }
         }
 
+
+
         String msgReturn = JSON.toJSON(msg).toString();
+        System.out.println("返回JSON："+msgReturn);
         /**
          * 返回json
          */
