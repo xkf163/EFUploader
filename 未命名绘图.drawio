@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-09-21T02:49:16.087Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="eS2WZu49NmB4rgIxAwXS" version="21.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2023-09-21T02:52:45.643Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="J0zCndE9PUiJ4cZfq7SS" version="21.8.0" type="github">
   <diagram name="Page-1" id="fbcf5db9-b524-4cd4-e4f3-379dc89c3999">
     <mxGraphModel dx="1434" dy="788" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -26,7 +26,7 @@
           <mxGeometry x="180" y="393" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="2a0f93b5c73ef8e7-8" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=1;fillColor=#10739E;fontSize=13;fontColor=#FFFFFF;align=center;gradientColor=none;gradientDirection=east;verticalAlign=top;shadow=1;" parent="1" vertex="1">
-          <mxGeometry x="340" y="475" width="220" height="85" as="geometry" />
+          <mxGeometry x="340" y="475" width="220" height="105" as="geometry" />
         </mxCell>
         <mxCell id="2a0f93b5c73ef8e7-9" value="4" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=30;fontColor=#FFFFFF;" parent="1" vertex="1">
           <mxGeometry x="350" y="508" width="40" height="20" as="geometry" />
@@ -64,8 +64,8 @@
         <mxCell id="2a0f93b5c73ef8e7-20" value="&lt;h1&gt;生成Docker镜像&amp;amp;推送Harbor&lt;/h1&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeColor=none;strokeWidth=4;fillColor=none;gradientColor=#007FFF;fontSize=9;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
           <mxGeometry x="220" y="364" width="160" height="77" as="geometry" />
         </mxCell>
-        <mxCell id="2a0f93b5c73ef8e7-21" value="&lt;h1&gt;Heading&lt;/h1&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeColor=none;strokeWidth=4;fillColor=none;gradientColor=#007FFF;fontSize=9;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
-          <mxGeometry x="390" y="479" width="160" height="77" as="geometry" />
+        <mxCell id="2a0f93b5c73ef8e7-21" value="&lt;h1&gt;rancher部署&lt;/h1&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;kubectl apply -f deployment.yml -n demo --kubeconfig=/app/config/rancher的kubectl配置文件&lt;/font&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeColor=none;strokeWidth=4;fillColor=none;gradientColor=#007FFF;fontSize=9;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+          <mxGeometry x="390" y="479" width="160" height="101" as="geometry" />
         </mxCell>
         <mxCell id="2a0f93b5c73ef8e7-22" value="&lt;h1&gt;Heading&lt;/h1&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeColor=none;strokeWidth=4;fillColor=none;gradientColor=#007FFF;fontSize=9;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
           <mxGeometry x="220" y="594" width="160" height="77" as="geometry" />
